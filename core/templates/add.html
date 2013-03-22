@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Add Project | i-DAT Reports{% endblock %}
+  	          
+{% block nav %}
+		<li><a href="/">Back</a></li>
+{% endblock %}
+  	          
+  	          
+{% block ui %}
+{% endblock %}
+
+  	    
+  	    
+{% block content %}
+	
+		<form enctype="multipart/form-data" method="post" action=".">
+		<fieldset>
+			<legend>Add Project</legend>
+			{% csrf_token %}
+			{{project_form}}
+			<br/><button type="submit" class="btn btn-primary btn-large">Add</button>
+			</fieldset>
+		</form>
+  	        
+{% endblock %}
+    
+{% block modals %}    
+    
+    
+{% endblock %}
+    
+{% block pageScripts %}
+<script type="text/javascript">
+   $(function() {
+   		var options = {
+   			format:'dd/mm/yyyy'
+   		};
+       $( "#id_start_date" ).datepicker(options);
+       $( "#id_end_date" ).datepicker(options);
+     }); 
+</script>
+{% endblock %}

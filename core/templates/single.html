@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}{{project.name}} | i-DAT Reports{% endblock %}
+  	          
+{% block nav %}
+		<li><a href="/">Back</a></li>
+{% endblock %}
+  	          
+  	          
+{% block ui %}
+		<li><a href="edit/">Edit Project</a></li>
+  	 
+{% endblock %}
+
+  	    
+  	    
+{% block content %}
+	
+	<div class="row">
+		<div class="span8">
+			<h1>{{project.name}}</h1>
+			<h3>Project Report</h3>
+				<ul>
+					{% if project.url %}<li>Site: <a href="project.url">{{project.url}}</a></li>{% endif %}
+					{% if project.strand %}<li>Strand: {{project.get_strand_display}}</li>{% endif %}
+					{% if project.start_date %}<li>Start: {{project.start_date}}</li>{% endif %}
+					{% if project.end_date %}<li>End: {{project.end_date}}</li>{% endif %}
+				</ul>
+		</div>
+		<div class="span4">
+			{% if project.logo %}
+				<img src="{{MEDIA_URL}}{{project.logo}}" alt="{{project.name}}">
+			{% else %}
+				<img data-src="holder.js/300x200" alt="">
+			{%endif%}
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="span12">
+			{%if project.summary %}
+				<h3>Summary</h3>
+				<p>{{project.summary}}</p>
+			{% endif %}
+			{% if stat_list%}
+				<h3>Statistics</h3>
+				<table class="table">
+					<tbody>
+						{% for stat in stat_list %}
+							<tr>
+								<td>{{stat.name}}</td>
+								<td>{{stat.value}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% endif %}
+			{% if link_list%}
+				<h3>Links</h3>
+				<table class="table">
+					<tbody>
+						{% for link in link_list %}
+							<tr>
+								<td><a href="{{link.url}}">{{link.name}}</a></td>
+								<td>{{link.get_type_display}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% endif %}
+			
+		</div>
+	</div>
+  	        
+{% endblock %}
+    
+{% block modals %}    
+    
+    
+{% endblock %}
+    
+{% block pageScripts %}
+<script type="text/javascript">
+    
+</script>
+{% endblock %}
