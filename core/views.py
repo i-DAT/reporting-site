@@ -11,11 +11,15 @@ from django.core.mail import EmailMessage
 from django.db.models import Count
 from django.utils import timezone
 
+from django import forms
 from django.forms import ModelForm
 
 class ProjectForm(ModelForm):
     class Meta:
             model = Project
+            
+class AddFileForm(forms.Form):
+    file_name = forms.CharField(max_length=100)
 
 def list_projects(request):
     project_list = Project.objects.all()
