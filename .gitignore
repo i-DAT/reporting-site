@@ -10,3 +10,5 @@ local-project/settings.py
 local-project/wsgi.py
 
 manage.py
+
+TODO-local.txt
