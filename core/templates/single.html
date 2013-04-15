@@ -8,6 +8,9 @@
   	          
   	          
 {% block ui %}
+		<li><a href="file/">Add File</a></li>
+		<li><a href="link/">Add Link</a></li>
+		<li><a href="stat/">Add Stat</a></li>
 		<li><a href="edit/">Edit Project</a></li>
   	 
 {% endblock %}
@@ -30,9 +33,23 @@
 		<div class="span4">
 			{% if project.logo %}
 				<img src="{{MEDIA_URL}}{{project.logo}}" alt="{{project.name}}">
+				
 			{% else %}
 				<img data-src="holder.js/300x200" alt="">
 			{%endif%}
+			
+			{% if project.strand == "SOC" %}
+				<img src="{{STATIC_URL}}img/s-os.svg">
+		    {% elif project.strand == "ECO" %}
+		    	<img src="{{STATIC_URL}}img/eco-os.svg">
+		    {% elif project.strand == "DOM" %}
+		    	<img src="{{STATIC_URL}}img/dome-os.svg">
+		    {% elif project.strand == "BIO" %}
+		    	<img src="{{STATIC_URL}}img/bio-os.svg">
+		    {% elif project.strand == "ARC" %}
+		    	<img src="{{STATIC_URL}}img/arch-os.svg">	
+			{% endif %}
+
 		</div>
 		
 	</div>
@@ -63,6 +80,20 @@
 							<tr>
 								<td><a href="{{link.url}}">{{link.name}}</a></td>
 								<td>{{link.get_type_display}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% endif %}
+			
+			{% if file_list%}
+				<h3>Links</h3>
+				<table class="table">
+					<tbody>
+						{% for file in file_list %}
+							<tr>
+								<td><a href="{{MEDIA_URL}}{{file.file}}">{{file.name}}</a></td>
+								
 							</tr>
 						{% endfor %}
 					</tbody>

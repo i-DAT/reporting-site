@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Add Link | i-DAT Reports{% endblock %}
+  	          
+{% block nav %}
+		<li><a href="/project/{{project_ID}}/">Back</a></li>
+{% endblock %}
+  	          
+  	          
+{% block ui %}
+{% endblock %}
+
+  	    
+  	    
+{% block content %}
+	
+		<form enctype="multipart/form-data" method="post" action=".">
+		<fieldset>
+			<legend>Add Link</legend>
+			{% csrf_token %}
+			{{link_form}}
+			<br/><button type="submit" class="btn btn-primary btn-large">Add Link</button>
+			</fieldset>
+		</form>
+  	        
+{% endblock %}
+    
+{% block modals %}    
+    
+    
+{% endblock %}
+    
+{% block pageScripts %}
+
+{% endblock %}
