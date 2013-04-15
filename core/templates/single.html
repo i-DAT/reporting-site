@@ -31,10 +31,9 @@
 			<h1>{{project.name}}</h1>
 			<h3>Project Report</h3>
 				<ul>
-					{% if project.url %}<li>Site: <a href="project.url">{{project.url}}</a></li>{% endif %}
+					{% if project.url %}<li><a href="project.url">{{project.url}}</a></li>{% endif %}
 					{% if project.strand %}<li>Strand: {{project.get_strand_display}}</li>{% endif %}
-					{% if project.start_date %}<li>Start: {{project.start_date}}</li>{% endif %}
-					{% if project.end_date %}<li>End: {{project.end_date}}</li>{% endif %}
+					<li>{{project.start_date}} {% if project.start_date and project.end_date %}-{% endif %} {{project.end_date}}</li>
 				</ul>
 		</div>
 		<div class="span4">
