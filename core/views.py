@@ -70,6 +70,12 @@ def add_file(request, project_id):
                'project_id':project_id,
                'file_form':file_form,
            }, context_instance=RequestContext(request))
+           
+def delete_file(request, project_id, file_id):
+    the_project = get_object_or_404(Project, pk=project_id)
+    the_file = get_object_or_404(File, pk=file_id) 
+    the_file.delete()
+    return redirect('/project/'+ project_id +'/')
 
 def add_link(request, project_id):
     the_project = get_object_or_404(Project, pk=project_id)
@@ -96,6 +102,12 @@ def add_link(request, project_id):
                'project_id':project_id,
                'link_form':link_form,
            }, context_instance=RequestContext(request))
+           
+def delete_link(request, project_id, link_id):
+    the_project = get_object_or_404(Project, pk=project_id)
+    the_link = get_object_or_404(Link, pk=link_id) 
+    the_link.delete()
+    return redirect('/project/'+ project_id +'/')
 
 def add_stat(request, project_id):
     the_project = get_object_or_404(Project, pk=project_id)
@@ -121,6 +133,12 @@ def add_stat(request, project_id):
                'project_id':project_id,
                'stat_form':stat_form,
            }, context_instance=RequestContext(request))
+           
+def delete_stat(request, project_id, stat_id):
+    the_project = get_object_or_404(Project, pk=project_id)
+    the_stat = get_object_or_404(Statistic, pk=stat_id) 
+    the_stat.delete()
+    return redirect('/project/'+ project_id +'/')
 
 def list_projects(request):
     project_list = Project.objects.all()

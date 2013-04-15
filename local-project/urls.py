@@ -17,8 +17,15 @@ urlpatterns = patterns('',
     (r'^$', 'core.views.list_projects'),
     (r'^project/(?P<project_id>\d+)/$', 'core.views.display_project'),
     (r'^project/(?P<project_id>\d+)/edit/$', 'core.views.edit_project'),
+    
     (r'^project/(?P<project_id>\d+)/link/$', 'core.views.add_link'),
+    (r'^project/(?P<project_id>\d+)/link/(?P<link_id>\d+)/delete/$', 'core.views.delete_link'),
+    
     (r'^project/(?P<project_id>\d+)/file/$', 'core.views.add_file'),
+    (r'^project/(?P<project_id>\d+)/file/(?P<file_id>\d+)/delete/$', 'core.views.delete_file'),
+    
     (r'^project/(?P<project_id>\d+)/stat/$', 'core.views.add_stat'),
+    (r'^project/(?P<project_id>\d+)/stat/(?P<stat_id>\d+)/delete/$', 'core.views.delete_stat'),
+    
     (r'^project/add/$', 'core.views.add_project'),
 )

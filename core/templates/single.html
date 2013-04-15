@@ -74,7 +74,7 @@
 							<tr>
 								<td>{{stat.name}}</td>
 								<td>{{stat.value}}</td>
-								<td class="item-options"><i class="icon-pencil"></i> <i class="icon-remove"></i></td>
+								<td class="item-options"><!--<i class="icon-pencil"></i>--><a href="/project/{{project.id}}/stat/{{stat.id}}/delete/"><i class="icon-remove"></i></a></td>
 							</tr>
 						{% endfor %}
 					</tbody>
@@ -88,7 +88,7 @@
 							<tr>
 								<td><a href="{{link.url}}">{{link.name}}</a></td>
 								<td>{{link.get_type_display}}</td>
-								<td class="item-options"><i class="icon-pencil"></i> <i class="icon-remove"></i></td>
+								<td class="item-options"><!--<i class="icon-pencil"></i>--><a href="/project/{{project.id}}/link/{{link.id}}/delete/"><i class="icon-remove"></i></a></td>
 							</tr>
 						{% endfor %}
 					</tbody>
@@ -102,7 +102,7 @@
 						{% for file in file_list %}
 							<tr>
 								<td><a href="{{MEDIA_URL}}{{file.file}}">{{file.name}}</a></td>
-								<td class="item-options"><i class="icon-pencil"></i> <i class="icon-remove"></i></td>
+								<td class="item-options"><!--<i class="icon-pencil"></i>--><a href="/project/{{project.id}}/file/{{file.id}}/delete/"><i class="icon-remove"></i></a></td>
 								
 							</tr>
 						{% endfor %}
