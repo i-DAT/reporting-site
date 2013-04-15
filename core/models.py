@@ -48,6 +48,7 @@ class Link(models.Model):
         ('EV','Event'),
         ('DF','Data Feed'),
         ('OP','Output'),
+        ('OT','Other'),
     )
     
     type =  models.CharField(max_length=2,choices=type_choices,blank=True)
