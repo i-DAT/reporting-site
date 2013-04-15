@@ -85,7 +85,7 @@
 					<tbody>
 						{% for link in link_list %}
 							<tr>
-								<td><a href="{{link.url}}">{{link.name}}</a></td>
+								<td><a class="ext-link" href="{{link.url}}">{{link.name}}</a></td>
 								<td>{{link.get_type_display}}</td>
 								<td class="item-options"><!--<i class="icon-pencil"></i>--><a href="/project/{{project.id}}/link/{{link.id}}/delete/"><i class="icon-remove"></i></a></td>
 							</tr>
@@ -95,7 +95,7 @@
 			{% endif %}
 			
 			{% if file_list%}
-				<h3>Links</h3>
+				<h3>Files</h3>
 				<table class="table">
 					<tbody>
 						{% for file in file_list %}
@@ -121,6 +121,14 @@
     
 {% block pageScripts %}
 <script type="text/javascript">
-    
+    $( document ).ready(function() {
+	    $(".ext-link[href^='http']").each(function() {
+	        $(this).css({
+	            background: "url(http://www.google.com/s2/u/0/favicons?domain=" + this.hostname + 
+	            ") left center no-repeat",
+	            "padding-left": "20px"
+	        });    
+	    });
+    });
 </script>
 {% endblock %}
